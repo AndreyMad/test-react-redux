@@ -1,0 +1,20 @@
+@import '../../../assets/styles/index.scss';
+
+.contacts-wrapper {
+  $this: &;
+  & .ant-row > div {
+    background-color: red;
+    width: 100%;
+
+    @media (min-width: 576px) {
+      width: 50%;
+    }
+    @media (min-width: 992px) {
+      width: 33.333%;
+    }
+    & .ant-card-cover > img {
+      max-height: 255px;
+      object-fit: cover;
+    }
+  }
+}

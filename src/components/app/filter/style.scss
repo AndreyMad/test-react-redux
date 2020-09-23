@@ -1,0 +1,70 @@
+@import '../../../assets/styles/index.scss';
+
+.page-contacts {
+  $this: &;
+  &-container {
+    & .ant-page-header {
+      background-color: transparent;
+      &-title {
+        font-size: 32px;
+      }
+      &-heading {
+        &-extra > .buttons_container > .ant-btn-group {
+          margin-left: 8px;
+        }
+      }
+    }
+    & .filter-container {
+      background-color: $color-white;
+      padding: 10px;
+      & form {
+        padding: 16px;
+        background-color: $color-white;
+        box-shadow: $shadow;
+        display: flex;
+        flex-wrap: wrap;
+        & > div {
+          margin-bottom: 10px;
+          width: 100%;
+          padding: 5px;
+        }
+        & > .ant-checkbox-wrapper {
+          margin: 0px auto;
+        }
+        & .clear_button {
+          border: none;
+          color: rgba(0, 0, 0, 0.25);
+          display: block;
+          margin: 5px auto;
+          width: 100%;
+          outline: none;
+        }
+        @media (min-width: 576px) {
+          & > div:nth-of-type(1) {
+            max-width: 700px;
+          }
+          & > div:nth-of-type(2n) {
+            max-width: 300px;
+          }
+          & > div:nth-of-type(3n) {
+            max-width: 400px;
+          }
+        }
+        @media (min-width: 992px) {
+          flex-wrap: nowrap;
+          align-items: baseline;
+          & > div:nth-last-of-type(1) {
+            max-width: 470px;
+          }
+          & > .ant-checkbox-wrapper {
+            min-width: 170px;
+          }
+          & > .clear_button {
+            width: 60px;
+            margin-right: 15px;
+          }
+        }
+      }
+    }
+  }
+}
