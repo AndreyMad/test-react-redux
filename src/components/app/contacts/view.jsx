@@ -1,7 +1,7 @@
 import './style.scss';
 import React from 'react';
 import { List, Card, Typography } from 'antd';
-const View = React.memo(() => {
+const View = React.memo((props) => {
   const data = [
     {
       gender: 'female',
@@ -234,7 +234,7 @@ const View = React.memo(() => {
   ];
   const { Meta } = Card;
   const { Paragraph, Link } = Typography;
-
+  console.log(props)
   return (
     <div className={'contacts-wrapper'}>
       <List
@@ -245,32 +245,28 @@ const View = React.memo(() => {
             <Card
               hoverable
               style={{ width: ' 100% ' }}
-              cover={<img alt="example" src={item.picture.large} />}
-            >
+              cover={<img alt="example" src={item.picture.large} />}>
               <Meta
                 title={`${item.name.title}. ${item.name.first} ${item.name.last} `}
               />
               <small>{`(${item.dob.age} years)`}</small>
-
-            
-              
-              <Paragraph copyable>
-                <Link  href={`mailto:${item.email}`}>
+              <Paragraph copyable={{ text: item.email }}>
+                <Link href={`mailto:${item.email}`}>
                   {item.email}
                 </Link>
               </Paragraph>
-              <Paragraph copyable>
-                <Link  href={`tel:${item.phone}`}>
+              <Paragraph copyable={{ text: item.phone }}>
+                <Link href={`tel:${item.phone}`}>
                   {item.phone}
                 </Link>
               </Paragraph>
-              <Paragraph copyable>
-        <span>/{item.location.country}/</span><br/>
-        <span>{`${item.location.street.number} ${item.location.street.name}, ${item.location.city}, ${item.location.state}, ${item.location.postcode}`}</span>
+              <Paragraph
+                copyable={{ text: `/${item.location.country}/ ${item.location.street.number} ${item.location.street.name}, ${item.location.city}, ${item.location.state}, ${item.location.postcode}` }}>
+                <span>/{item.location.country}/</span><br />
+                <span>{`${item.location.street.number} ${item.location.street.name}, ${item.location.city}, ${item.location.state}, ${item.location.postcode}`}</span>
               </Paragraph>
             </Card>
           </List.Item>
- 
         )}
       />
     </div>

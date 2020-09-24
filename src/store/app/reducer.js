@@ -8,3 +8,13 @@ export const reducer = createReducer(initialState, {
 		return state;
 	},
 });
+
+export const viewReducer= (state = 'grid', action)=>{
+	switch (action.type){
+		// case types.VIEW :
+		// 	return {
+		// 		state: action.payload
+		// 	}
+		// 	default: return state
+	}
+}
