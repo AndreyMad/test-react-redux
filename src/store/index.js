@@ -5,12 +5,13 @@ import createSagaMiddleware from 'redux-saga';
 import { ALLOW_WINDOW_EXTENDS, ALLOW_REDUX_DEVTOOLS_EXTENSION } from 'constants/env';
 import { history } from 'routes/history';
 import { createRootReducer } from './root-reducer';
-import { rootSaga } from './root-saga';
+import ReduxThunk from "redux-thunk";
 
 const sagaMiddleware = createSagaMiddleware();
 const reduxMiddleware = applyMiddleware(
 	sagaMiddleware,
 	routerMiddleware(history),
+	ReduxThunk
 );
 const enhancers = ALLOW_REDUX_DEVTOOLS_EXTENSION ? composeWithDevTools(reduxMiddleware) : reduxMiddleware;
 
@@ -24,7 +25,6 @@ const configureStore = (preloadedState = window.__INITIAL_STATE__ || {}) => {
 
 const store = configureStore();
 
-sagaMiddleware.run(rootSaga);
 
 export { store };
 

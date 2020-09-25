@@ -8,8 +8,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = null;
 
-const Contacts = compose(
+const GridContacts = compose(
 	connect(mapStateToProps, mapDispatchToProps),
 )(View);
 
-export { Contacts };
+export { GridContacts };

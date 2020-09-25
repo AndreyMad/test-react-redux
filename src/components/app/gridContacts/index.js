@@ -1,0 +1,1 @@
+export { GridContacts } from './container';
