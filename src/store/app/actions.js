@@ -37,6 +37,14 @@ export const filterContacts = values=>({
     gender: values.gender
   }
 })
+///розобратись
+export const setIsloading = (isLoading)=>({
+  type: types.GET_ISLOADING,
+  payload:{
+    isLoading:isLoading
+  }
+})
+export const getIsloading = (createAction(types.GET_ISLOADING))
 
 export const filterAction = (objectFilter) => {
   return (dispatch, getState)=>{

@@ -10,3 +10,4 @@ export const getAppState = createSelector(
 export const getUsers = state => state.app.users;
 export const getView = state => state.app.view;
 export const getNationalityFromFilter = state => state.app.filter.nationality;
+export const getIsLoading = state => state.app.isLoading

@@ -39,7 +39,17 @@ export const filterReducer = (filteredContacts={}, action )=>{
 		default: return filteredContacts
 	}
 }
-
+export const loadingReducer =(isLoading=false, action)=>{
+	switch (action.type){
+		case types.GET_ISLOADING:
+			return isLoading;
+		case types.LOADING_START:
+			return true;
+		case types.LOADING_END:
+			return false;
+		default: return isLoading
+	}
+}
 
 /*
 export const filterAction = (signObj) => {

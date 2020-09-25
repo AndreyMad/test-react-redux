@@ -45,13 +45,23 @@ class View extends Component {
       () => setTimeout(() => console.log(this.state), 300),
     );
   };
+
 nationalityChange =(val)=>{
-console.log(NATIONALITIES);
+const nat =val.map(el=>{
+  for(let key in NATIONALITIES){ 
+    if(el===NATIONALITIES[key].name){
+      return key
+    }
+  }
+return el
+})  
+console.log(nat)
 
 
 this.setState({
-    nationality:[...val]
-  })
+    nationality:[...nat]
+  },
+  () => setTimeout(() => console.log(this.state), 300),)
 
  }
 
