@@ -4,8 +4,8 @@ import  View  from './view';
 import { setView ,filterContacts} from 'store/app/actions';
 import * as selectors from '../../../store/app/selectors';
 
-const mapStateToProps = (state) => ({
-	view: selectors.getView(state)
+const mapStateToProps = () => ({
+
 });
 
 const mapDispatchToProps = dispatch=>({

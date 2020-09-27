@@ -46,24 +46,22 @@ class View extends Component {
     );
   };
 
-nationalityChange =(val)=>{
-const nat =val.map(el=>{
-  for(let key in NATIONALITIES){ 
-    if(el===NATIONALITIES[key].name){
-      return key
-    }
-  }
-return el
-})  
-console.log(nat)
-
-
-this.setState({
-    nationality:[...nat]
-  },
-  () => setTimeout(() => console.log(this.state), 300),)
-
- }
+  nationalityChange = val => {
+    const nat = val.map(el => {
+      for (let key in NATIONALITIES) {
+        if (el === NATIONALITIES[key].name) {
+          return key;
+        }
+      }
+      return el;
+    });
+    this.setState(
+      {
+        nationality: [...nat],
+      },
+      () => setTimeout(() => console.log(this.state), 300),
+    );
+  };
 
   render() {
     const ButtonGroup = Button.Group;

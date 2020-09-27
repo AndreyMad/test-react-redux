@@ -6,8 +6,6 @@ export const getAppState = createSelector(
 	[_getAppState],
 	(app) => app,
 );
-
 export const getUsers = state => state.app.users;
-export const getView = state => state.app.view;
-export const getNationalityFromFilter = state => state.app.filter.nationality;
-export const getIsLoading = state => state.app.isLoading
+export const gitFilterValue = state=>state.app.filter;
+

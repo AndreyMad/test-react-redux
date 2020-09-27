@@ -39,14 +39,16 @@ export const filterReducer = (filteredContacts={}, action )=>{
 		default: return filteredContacts
 	}
 }
-export const loadingReducer =(isLoading=false, action)=>{
+
+git a
+export const isLoadingReducer =(isLoading=false, action)=>{
 	switch (action.type){
-		case types.GET_ISLOADING:
-			return isLoading;
-		case types.LOADING_START:
+		case types.GET_USERS_START:
 			return true;
-		case types.LOADING_END:
+		case types.GET_USERS_SUCCESS:
+			case types.GET_USERS_ERROR:
 			return false;
+		
 		default: return isLoading
 	}
 }

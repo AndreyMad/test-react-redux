@@ -5,14 +5,12 @@ export const OActionTypes = {
 };
 
 export const getUsersStart = createAction(types.GET_USERS_START)
-
 export const getUsersSuccess = users => ({
   type: types.GET_USERS_SUCCESS,
   payload: {
     users: users.results,
   },
 });
-
 export const getUsersError = error => ({
   type: types.GET_USERS_START,
   payload: {
@@ -20,7 +18,6 @@ export const getUsersError = error => ({
   },
 });
 
-export const getView = (createAction(types.GET_VIEW))
 
 export const setView = view => ({
   type: types.SET_VIEW,
@@ -28,6 +25,13 @@ export const setView = view => ({
 	  view: view 
 	},
 });
+
+export const setFilterValues = values=>({
+  type: types.SET_FILTER_VALUES,
+  payload:{
+    values:values
+  }
+})
 
 export const filterContacts = values=>({
   type: types.FILTER_CONTACTS,
@@ -37,14 +41,10 @@ export const filterContacts = values=>({
     gender: values.gender
   }
 })
-///розобратись
-export const setIsloading = (isLoading)=>({
-  type: types.GET_ISLOADING,
-  payload:{
-    isLoading:isLoading
-  }
-})
-export const getIsloading = (createAction(types.GET_ISLOADING))
+
+
+
+
 
 export const filterAction = (objectFilter) => {
   return (dispatch, getState)=>{
