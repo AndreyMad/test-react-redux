@@ -2,9 +2,10 @@ import { compose } from 'redux';
 import { connect } from 'react-redux';
 import { View } from './view';
 
-const mapStateToProps = (state) => {
-	return {};
-};
+const mapStateToProps = (state) => ({
+
+	isLoading: state.app.isLoading
+});
 
 const mapDispatchToProps = null;
 

@@ -6,8 +6,10 @@ export const getUsers = () => dispatch => {
 
   API.getUsers()
     .then(res => {
-
+      console.log(res);
       dispatch(actions.getUsersSuccess(res.data));
+    
     })
-    .catch(err => dispatch(actions.getUsersError(err)));
+    .catch(err =>{console.log('asdasd'); 
+    dispatch(actions.getUsersError(err))});
 };

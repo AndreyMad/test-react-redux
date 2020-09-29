@@ -1,24 +1,24 @@
 import './style.scss';
 import React from 'react';
 import { List, Card, Typography } from 'antd';
-const View = React.memo(({contacts}) => {
+const View = React.memo(({contacts,isLoading}) => {
 
 
 
   const { Meta } = Card;
   const { Paragraph, Link } = Typography;
 
-
   return (
     <div className={'contacts-wrapper'}>
       <List
         grid={{ gutter: 16 }}
-        
+        loading={isLoading}
         dataSource={contacts}
         renderItem={item => (
           <List.Item>
             <Card
               hoverable
+              
               style={{ width: ' 100% ' }}
               cover={<img alt="example" src={item.picture.large} />}>
               <Meta

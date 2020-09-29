@@ -31,6 +31,8 @@ class View extends Component {
   handleViewChange = e => {
     const { setView } = this.props;
     setView(e.currentTarget.id);
+    const {isLoading}=this.props
+
   };
 
   handleChange = (e, val) => {
@@ -72,8 +74,11 @@ class View extends Component {
       nationalitiesToSelect.push(NATIONALITIES[key].name);
     }
 
+const {isLoading}=this.props
     return (
       <div className={'page-contacts-container'}>
+
+  
         <PageHeader
           className={'page_header'}
           goBack={false}
@@ -114,6 +119,7 @@ class View extends Component {
                 data-name="name"
                 placeholder="Search by full name"
                 allowClear
+                loading={isLoading}
               />
             </Form.Item>
             <Form.Item

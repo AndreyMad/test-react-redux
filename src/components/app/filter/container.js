@@ -4,13 +4,14 @@ import  View  from './view';
 import { setView ,filterContacts} from 'store/app/actions';
 import * as selectors from '../../../store/app/selectors';
 
-const mapStateToProps = () => ({
-
+const mapStateToProps = (state) => ({
+	isLoading: state.app.isLoading
 });
 
 const mapDispatchToProps = dispatch=>({
 	setView: (view)=>dispatch(setView(view)),
 	filter: (values)=>dispatch(filterContacts(values))
+	
 })
 
 const Filter = compose(

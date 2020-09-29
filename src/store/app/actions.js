@@ -4,7 +4,8 @@ export const OActionTypes = {
   prefix: '@app',
 };
 
-export const getUsersStart = createAction(types.GET_USERS_START)
+export const getUsersStart = createAction(types.GET_USERS_START);
+
 export const getUsersSuccess = users => ({
   type: types.GET_USERS_SUCCESS,
   payload: {
@@ -12,7 +13,7 @@ export const getUsersSuccess = users => ({
   },
 });
 export const getUsersError = error => ({
-  type: types.GET_USERS_START,
+  type: types.GET_USERS_ERROR,
   payload: {
     error: error,
   },
