@@ -61,14 +61,3 @@ export const isLoadingReducer =(isLoading=false, action)=>{
 	}
 }
 
-/*
-export const filterAction = (signObj) => {
-  return (dispatch, getState)=>{
-    let filtredList = [ ...getState().noFilterList]; 
-    Object.keys(signObj).map((signName)=>{
-      filtredList.filter((item)=>( item[signName] ===  signObj[signName]))
-    });
-    dispatch({ type: types.GET_USERS_START, payload: filtredList}); 
-  }
-}
-*/

@@ -46,14 +46,3 @@ export const filterContacts = values=>({
 
 
 
-
-export const filterAction = (objectFilter) => {
-  return (dispatch, getState)=>{
-    let filtredList = [ ...getState().noFilterList]; // Не фильтрованный список
-    Object.keys(objectFilter).map((filterName)=>{
-      filtredList.filter((item)=>( item[filterName] ===  objectFilter[filterName]))
-    });
-    dispatch({ type: types.FILTER_CONTACTS, payload: filtredList});  // устанавливает state.filterdList
-  }
-}
-

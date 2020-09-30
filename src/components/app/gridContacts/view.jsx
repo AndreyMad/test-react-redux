@@ -1,20 +1,37 @@
 import './style.scss';
-import React from 'react';
-import { List, Card, Typography } from 'antd';
-const View = React.memo(({contacts,isLoading}) => {
+import React,{Component} from 'react';
+import { List, Card, Typography,Tag } from 'antd';
+import {NATIONALITIES} from '../../../constants/nationalities';
+class View extends Component {
+state={
+  pageSize:10,
+  curentPage:1
+}
 
 
 
-  const { Meta } = Card;
-  const { Paragraph, Link } = Typography;
-
+ 
+  render (){
+    const {contacts,isLoading}=this.props
+    const { Meta } = Card;
+    const {pageSize,curentPage}=this.state
+    const { Paragraph, Link } = Typography;
   return (
     <div className={'contacts-wrapper'}>
       <List
         grid={{ gutter: 16 }}
         loading={isLoading}
         dataSource={contacts}
-        renderItem={item => (
+        pagination={{
+          onShowSizeChange: (current, pageSize)=> {
+            this.setState({pageSize})
+          },
+          onChange: page => {
+           this.setState({curentPage:page})
+          },
+          defaultCurrent:curentPage,
+          pageSize: pageSize,
+        }}        renderItem={item => (
           <List.Item>
             <Card
               hoverable
@@ -40,12 +57,13 @@ const View = React.memo(({contacts,isLoading}) => {
                 <span>/{item.location.country}/</span><br />
                 <span>{`${item.location.street.number} ${item.location.street.name}, ${item.location.city}, ${item.location.state}, ${item.location.postcode}`}</span>
               </Paragraph>
+              <Tag color={`${NATIONALITIES[item.nat].color}`}>{`${NATIONALITIES[item.nat].name}`}</Tag>
             </Card>
           </List.Item>
         )}
       />
     </div>
   );
-});
-
+}
+}
 export { View };

@@ -4,7 +4,7 @@ import { combineReducers } from "redux";
 export const app =  combineReducers({
     users:getUsers,
     view:viewReducer,
-    some: filterReducer,
+    filter: filterReducer,
     isLoading: isLoadingReducer,
     error: errorReducer
 

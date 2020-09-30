@@ -24,31 +24,36 @@ class View extends Component {
   state = {
     name: '',
     gender: '',
-    nationality: '',
+    nationality: [],
     iAmCreator: false,
   };
 
   handleViewChange = e => {
     const { setView } = this.props;
     setView(e.currentTarget.id);
-    const {isLoading}=this.props
-
+    const { isLoading } = this.props;
   };
 
   handleChange = (e, val) => {
+    const { filter } = this.props;
     const result = {
       value: e.target ? e.target.value : val.value,
       field: e.target ? e.target.dataset.name : val.name,
     };
+
     this.setState(
       {
         [result.field]: result.value,
       },
-      () => setTimeout(() => console.log(this.state), 300),
+      () => {
+        const { name, gender, nationality } = this.state;
+        filter({ name, gender, nationality });
+      },
     );
   };
 
   nationalityChange = val => {
+    const { filter } = this.props;
     const nat = val.map(el => {
       for (let key in NATIONALITIES) {
         if (el === NATIONALITIES[key].name) {
@@ -61,7 +66,10 @@ class View extends Component {
       {
         nationality: [...nat],
       },
-      () => setTimeout(() => console.log(this.state), 300),
+      () => {
+        const { name, gender, nationality } = this.state;
+        filter({ name, gender, nationality });
+      },
     );
   };
 
@@ -74,11 +82,9 @@ class View extends Component {
       nationalitiesToSelect.push(NATIONALITIES[key].name);
     }
 
-const {isLoading}=this.props
+    const { isLoading } = this.props;
     return (
       <div className={'page-contacts-container'}>
-
-  
         <PageHeader
           className={'page_header'}
           goBack={false}

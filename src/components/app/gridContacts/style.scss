@@ -2,37 +2,38 @@
 
 .contacts-wrapper {
   $this: &;
-
+  // & .ant-row {
+  //   display: flex;
+  //   justify-content: center;
+  // }
   & .ant-row > div {
     width: 100%;
     display: flex;
-    & .ant-col{
+    & .ant-col {
       display: flex;
     }
-    & .ant-card{
+    & .ant-card {
       height: 100%;
     }
     @media (min-width: 576px) {
       width: 50%;
     }
     @media (min-width: 992px) {
-      width: 33.333%;
-      max-width: 350px;
+      width: 25%;
+      max-width: 360px;
     }
     & .ant-card-cover > img {
       max-height: 255px;
       object-fit: cover;
     }
-    & .ant-typography{
+    & .ant-typography {
       display: flex;
       flex-wrap: wrap;
     }
-    & .ant-typography>div{
+    & .ant-typography > div {
       order: -1;
       margin-left: 0px;
       margin-right: 5px;
     }
-  
-
   }
 }

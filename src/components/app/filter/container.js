@@ -1,7 +1,7 @@
 import { compose } from 'redux';
 import { connect } from 'react-redux';
 import  View  from './view';
-import { setView ,filterContacts} from 'store/app/actions';
+import { setView } from 'store/app/actions';
 import * as selectors from '../../../store/app/selectors';
 
 const mapStateToProps = (state) => ({
@@ -9,8 +9,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = dispatch=>({
-	setView: (view)=>dispatch(setView(view)),
-	filter: (values)=>dispatch(filterContacts(values))
+	setView: (view)=>dispatch(setView(view))
+
 	
 })
 
