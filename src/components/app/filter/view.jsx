@@ -20,7 +20,7 @@ import { NATIONALITIES } from '../../../constants/nationalities';
 
 const { Search } = Input;
 
-class View extends Component {
+class Filter extends Component {
   state = {
     name: '',
     gender: '',
@@ -31,10 +31,11 @@ class View extends Component {
   handleViewChange = e => {
     const { setView } = this.props;
     setView(e.currentTarget.id);
-    const { isLoading } = this.props;
   };
 
   handleChange = (e, val) => {
+    console.log(e);
+    console.log(val);
     const { filter } = this.props;
     const result = {
       value: e.target ? e.target.value : val.value,
@@ -46,8 +47,8 @@ class View extends Component {
         [result.field]: result.value,
       },
       () => {
-        const { name, gender, nationality } = this.state;
-        filter({ name, gender, nationality });
+        // const { name, gender, nationality } = this.state;
+        filter({  [result.field]: result.value, });
       },
     );
   };
@@ -181,4 +182,4 @@ class View extends Component {
     );
   }
 }
-export default View;
+export default Filter;
